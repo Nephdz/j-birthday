@@ -107,6 +107,27 @@ function goToPage(pageId) {
   if (pageId === "birthday-page" && !musicStarted) {
     startMusic();
   }
+
+  // Reset candles when going back to birthday page
+  if (pageId === "birthday-page") {
+    resetCandles();
+  }
+}
+
+// Reset all candles to their original state
+function resetCandles() {
+  candlesBlownOut = 0;
+  updateCandlesRemainingDisplay();
+
+  // Remove blown-out class from all candles
+  document.querySelectorAll(".candle").forEach((candle) => {
+    candle.classList.remove("blown-out");
+    // Remove any smoke elements
+    const smoke = candle.querySelector(".smoke");
+    if (smoke) {
+      smoke.remove();
+    }
+  });
 }
 
 // Start the birthday music
