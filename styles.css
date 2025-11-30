@@ -1,3 +1,16 @@
+/* Color Theme Variables */
+:root {
+    --color-primary: #bfbb7e; /* Muted matcha green */
+    --color-secondary: #bdbf65; /* Brighter matcha green */
+    --color-background: #f2ded0; /* Cream/beige */
+    --color-text: #73655d; /* Brown/taupe */
+    --color-accent: #d99b77; /* Terracotta/peach */
+
+    /* Derived colors */
+    --color-primary-dark: #a8aa52;
+    --color-accent-light: #e8b99a;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -34,7 +47,11 @@ body {
 /* LANDING PAGE STYLES  */
 /* ==================== */
 #landing-page {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(
+        135deg,
+        var(--color-primary) 0%,
+        var(--color-secondary) 100%
+    );
     flex-direction: column;
     position: relative;
 }
@@ -50,10 +67,10 @@ body {
 }
 
 .landing-title {
-    color: white;
+    color: var(--color-text);
     font-size: 3rem;
     margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
     animation: pulse 2s ease-in-out infinite;
 }
 
@@ -107,7 +124,11 @@ body {
     transform: translateX(-50%);
     width: 80px;
     height: 40px;
-    background: linear-gradient(to bottom, #ffb6c1 0%, #ff69b4 100%);
+    background: linear-gradient(
+        to bottom,
+        var(--color-background) 0%,
+        var(--color-accent) 100%
+    );
     border-radius: 10px 10px 5px 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -160,7 +181,11 @@ body {
     transform: translateX(-50%);
     width: 120px;
     height: 50px;
-    background: linear-gradient(to bottom, #dda0dd 0%, #ba55d3 100%);
+    background: linear-gradient(
+        to bottom,
+        var(--color-secondary) 0%,
+        var(--color-primary-dark) 100%
+    );
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -172,7 +197,11 @@ body {
     transform: translateX(-50%);
     width: 160px;
     height: 50px;
-    background: linear-gradient(to bottom, #ffb6c1 0%, #ff69b4 100%);
+    background: linear-gradient(
+        to bottom,
+        var(--color-background) 0%,
+        var(--color-accent) 100%
+    );
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -233,7 +262,7 @@ body {
 }
 
 .click-hint {
-    color: white;
+    color: var(--color-text);
     font-size: 1.2rem;
     margin-top: 2rem;
     opacity: 0.8;
@@ -254,7 +283,11 @@ body {
 /* BIRTHDAY PAGE STYLES */
 /* ==================== */
 #birthday-page {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(
+        135deg,
+        var(--color-background) 0%,
+        var(--color-accent) 100%
+    );
     flex-direction: column;
     overflow: visible;
 }
@@ -269,39 +302,39 @@ body {
 }
 
 .birthday-title {
-    color: white;
+    color: var(--color-text);
     font-size: 4rem;
     margin-bottom: 0.5rem;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
     animation: colorChange 3s ease-in-out infinite;
 }
 
 @keyframes colorChange {
     0%,
     100% {
-        color: #fff;
+        color: var(--color-text);
     }
     33% {
-        color: #ffd700;
+        color: var(--color-secondary);
     }
     66% {
-        color: #ff69b4;
+        color: var(--color-accent);
     }
 }
 
 .birthday-subtitle {
-    color: white;
+    color: var(--color-text);
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
     opacity: 0.9;
 }
 
 .candles-remaining {
-    color: #ffd700;
+    color: var(--color-secondary);
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
 }
 
 /* Top-down angled cake view */
@@ -322,16 +355,16 @@ body {
     height: 100%;
     background: radial-gradient(
         ellipse at center,
-        #ffb6c1 0%,
-        #ff69b4 60%,
-        #ff1493 100%
+        var(--color-background) 0%,
+        var(--color-primary) 60%,
+        var(--color-primary-dark) 100%
     );
     border-radius: 50%;
     box-shadow:
         0 20px 40px rgba(0, 0, 0, 0.3),
         inset 0 -10px 30px rgba(0, 0, 0, 0.1),
         inset 0 10px 30px rgba(255, 255, 255, 0.3);
-    border: 8px solid #f8b4d9;
+    border: 8px solid var(--color-secondary);
     pointer-events: none;
 }
 
@@ -345,7 +378,7 @@ body {
     background: radial-gradient(
         ellipse at center,
         #fff 0%,
-        #f8b4d9 50%,
+        var(--color-background) 50%,
         transparent 70%
     );
     border-radius: 50%;
@@ -367,7 +400,11 @@ body {
     position: absolute;
     width: 16px;
     height: 16px;
-    background: radial-gradient(circle, #ff6b6b 0%, #cc5555 100%);
+    background: radial-gradient(
+        circle,
+        var(--color-accent) 0%,
+        var(--color-text) 100%
+    );
     border-radius: 50%;
     cursor: pointer;
     transition:
@@ -428,15 +465,27 @@ body {
 
 /* Different candle colors */
 .candle:nth-child(odd) {
-    background: radial-gradient(circle, #4ecdc4 0%, #3ba89f 100%);
+    background: radial-gradient(
+        circle,
+        var(--color-secondary) 0%,
+        var(--color-primary-dark) 100%
+    );
 }
 
 .candle:nth-child(3n) {
-    background: radial-gradient(circle, #f7dc6f 0%, #d4b84a 100%);
+    background: radial-gradient(
+        circle,
+        var(--color-primary) 0%,
+        var(--color-secondary) 100%
+    );
 }
 
 .candle:nth-child(5n) {
-    background: radial-gradient(circle, #bb8fce 0%, #9563ab 100%);
+    background: radial-gradient(
+        circle,
+        var(--color-accent-light) 0%,
+        var(--color-accent) 100%
+    );
 }
 
 /* Blown out candle */
@@ -511,7 +560,11 @@ body {
 /* CARD PAGE STYLES     */
 /* ==================== */
 #card-page {
-    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    background: linear-gradient(
+        135deg,
+        var(--color-primary) 0%,
+        var(--color-background) 100%
+    );
 }
 
 .card-content {
@@ -521,20 +574,28 @@ body {
 }
 
 .birthday-card {
-    background: linear-gradient(145deg, #fffef9 0%, #fff5f5 100%);
+    background: linear-gradient(
+        145deg,
+        #fffef9 0%,
+        var(--color-background) 100%
+    );
     border-radius: 20px;
     padding: 40px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
-    border: 3px solid #f8b4d9;
+    border: 3px solid var(--color-accent);
 }
 
 .card-decoration {
     position: absolute;
     width: 60px;
     height: 60px;
-    background: radial-gradient(circle, #ff69b4 0%, #ff1493 100%);
+    background: radial-gradient(
+        circle,
+        var(--color-secondary) 0%,
+        var(--color-primary-dark) 100%
+    );
     border-radius: 50%;
     opacity: 0.3;
 }
@@ -557,7 +618,7 @@ body {
 }
 
 .card-title {
-    color: #ff69b4;
+    color: var(--color-text);
     font-size: 2rem;
     text-align: center;
     margin-bottom: 30px;
@@ -565,7 +626,7 @@ body {
 }
 
 .card-message {
-    color: #555;
+    color: var(--color-text);
     font-size: 1.2rem;
     line-height: 2;
     text-align: center;
@@ -577,7 +638,7 @@ body {
 
 .signature {
     font-style: italic;
-    color: #ff69b4;
+    color: var(--color-accent);
     margin-top: 30px !important;
     font-size: 1.3rem;
 }
@@ -586,7 +647,11 @@ body {
     display: block;
     margin: 30px auto 0;
     padding: 15px 30px;
-    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    background: linear-gradient(
+        135deg,
+        var(--color-secondary) 0%,
+        var(--color-primary-dark) 100%
+    );
     color: white;
     border: none;
     border-radius: 30px;
@@ -595,12 +660,12 @@ body {
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+    box-shadow: 0 4px 15px rgba(189, 191, 101, 0.4);
 }
 
 .back-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+    box-shadow: 0 6px 20px rgba(189, 191, 101, 0.6);
 }
 
 /* Page Transitions */
