@@ -10,7 +10,7 @@ const birthdayMusic = document.getElementById("birthday-music");
 const landingCake = document.getElementById("landing-cake");
 
 // Number of candles (age)
-const numberOfCandles = 1;
+const numberOfCandles = 29;
 
 // Music state
 let musicStarted = false;
