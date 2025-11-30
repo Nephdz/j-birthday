@@ -9,6 +9,7 @@
             href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎂</text></svg>"
         />
         <link rel="stylesheet" href="styles.css" />
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     </head>
     <body>
         <!-- Page 1: Landing Page with Animated Cake -->
@@ -38,7 +39,9 @@
         <!-- Page 2: Birthday Page with Music and Candles -->
         <section id="birthday-page" class="page">
             <div class="birthday-content">
-                <h1 class="birthday-title">Happy Birthday!</h1>
+                <h1 class="birthday-title" id="birthday-title">
+                    Happy Birthday!
+                </h1>
                 <p class="birthday-subtitle">
                     Blow out all the candles to see your special message!
                 </p>
@@ -72,22 +75,8 @@
 
                     <h2 class="card-title">A Special Message For You</h2>
 
-                    <div class="card-message">
-                        <p>Dear Birthday Star,</p>
-                        <p>
-                            Wishing you the most amazing 29th birthday filled
-                            with joy, laughter, and all the things that make you
-                            happiest!
-                        </p>
-                        <p>
-                            May this year bring you endless opportunities,
-                            beautiful moments, and dreams come true.
-                        </p>
-                        <p>
-                            You are truly special and deserve all the happiness
-                            in the world!
-                        </p>
-                        <p class="signature">With love and warm wishes</p>
+                    <div class="card-message" id="card-message">
+                        <!-- Message will be loaded from messages/{numberOfCandles}.md -->
                     </div>
 
                     <button

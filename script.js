@@ -10,7 +10,7 @@ const birthdayMusic = document.getElementById("birthday-music");
 const landingCake = document.getElementById("landing-cake");
 
 // Number of candles (age)
-const numberOfCandles = 29;
+const numberOfCandles = 1;
 
 // Music state
 let musicStarted = false;
@@ -18,6 +18,8 @@ let musicStarted = false;
 // Candle tracking
 let candlesBlownOut = 0;
 const candlesRemainingDisplay = document.getElementById("candles-remaining");
+const birthdayTitle = document.getElementById("birthday-title");
+const cardMessage = document.getElementById("card-message");
 
 // Cake movement variables
 let cakeAnimationId = null;
@@ -34,7 +36,47 @@ document.addEventListener("DOMContentLoaded", function () {
   createConfetti();
   initCakeMovement();
   updateCandlesRemainingDisplay();
+  updateBirthdayTitle();
+  loadBirthdayMessage();
 });
+
+// Get ordinal suffix for a number (1st, 2nd, 3rd, 4th, etc.)
+function getOrdinalSuffix(n) {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+}
+
+// Update the birthday title with the age
+function updateBirthdayTitle() {
+  if (birthdayTitle) {
+    birthdayTitle.textContent =
+      "Happy " + getOrdinalSuffix(numberOfCandles) + " Birthday!";
+  }
+}
+
+// Load the birthday message from messages/{numberOfCandles}.md
+function loadBirthdayMessage() {
+  if (!cardMessage) return;
+
+  const messageFile = "messages/" + numberOfCandles + ".md";
+
+  fetch(messageFile)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Message file not found");
+      }
+      return response.text();
+    })
+    .then((markdown) => {
+      cardMessage.innerHTML = marked.parse(markdown);
+    })
+    .catch((error) => {
+      console.log("Could not load message:", error);
+      cardMessage.innerHTML =
+        "<p>Happy Birthday! Wishing you all the best!</p>";
+    });
+}
 
 // Update the candles remaining display
 function updateCandlesRemainingDisplay() {
