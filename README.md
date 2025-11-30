@@ -1,3 +1,5 @@
+https://nephdz.github.io/j-birthday/
+
 A birthday website with an interactive cake and candle-blowing experience. Designed for GitHub Pages hosting.
 
 ## Configuration
