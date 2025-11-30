@@ -1,5 +1,3 @@
-# j-birthday-2025
-
 A birthday website with an interactive cake and candle-blowing experience. Designed for GitHub Pages hosting.
 
 ## Configuration
